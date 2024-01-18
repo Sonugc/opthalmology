@@ -4,4 +4,4 @@ matplotlib
 openpyxl
 scikit-learn
 torchvision
-
+torchsummary

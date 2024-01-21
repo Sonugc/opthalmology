@@ -4,9 +4,9 @@ from src.transforms import transforms
 
 
 
-train_csv_path = r"C:\Users\User\Desktop\Opthalmology\opthalmology\data\processed_train_ODIR-5K.csv"
-val_csv_path= r"C:\Users\User\Desktop\Opthalmology\opthalmology\data\processed_val_ODIR-5K.csv"
-test_csv_path= r"C:\Users\User\Desktop\Opthalmology\opthalmology\data\processed_test_ODIR-5k.csv"
+train_csv_path = r"data\processed_train_ODIR-5K.csv"
+val_csv_path= r"data\processed_val_ODIR-5K.csv"
+test_csv_path= r"data\processed_test_ODIR-5k.csv"
 
 train_dataset= ODIRDataset(csv_path=train_csv_path ,transforms=transforms,has_labels=True)
 val_dataset=ODIRDataset(csv_path=val_csv_path, transforms=transforms,has_labels=True)

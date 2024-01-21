@@ -47,7 +47,7 @@ class ODIRDataset(Dataset):
 
     def __getitem__(self, index):
         image_name = self.images[index]
-        image_path = os.path.join(r"C:\Users\User\Desktop\Opthalmology\opthalmology\data\ODIR-5K_Training_Dataset", image_name )
+        image_path = os.path.join(r"data\ODIR-5K_Training_Images\ODIR-5K_Training_Dataset", image_name )
         label_name = self.labels[index] if self.labels is not None else None
         label = label_to_idx(label_name) if label_name is not None else None
 

@@ -2,3 +2,4 @@ Data
 venv
 _pycache_
 artifact
+artifact/

@@ -32,7 +32,7 @@ if __name__=="__main__":
     print(f"folder name:{folder_name}")
 
     #create tensorboard writer
-    writer=SummaryWriter(log_dir=f"artifact/{folder_name}/tensorboard_logs")
+    writer=SummaryWriter(log_dir=f"artifacts/{folder_name}/tensorboard_logs")
     #prepare dataset
     train_csv_path=r"data\train.csv"
     val_csv_path=r"data\test.csv"

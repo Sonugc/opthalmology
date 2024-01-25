@@ -34,8 +34,8 @@ if __name__=="__main__":
     #create tensorboard writer
     writer=SummaryWriter(log_dir=f"artifacts/{folder_name}/tensorboard_logs")
     #prepare dataset
-    train_csv_path=r"data\train.csv"
-    val_csv_path=r"data\test.csv"
+    train_csv_path=r"data\processed_train_ODIR-5K.csv"
+    val_csv_path=r"data\processed_val_ODIR-5K.csv"
     transforms=T.Compose([T.Resize((256,256)),T.ToTensor()])
     train_dataset=ODIRDataset(csv_path=train_csv_path,transforms=transforms)
     train_data_loader=DataLoader(

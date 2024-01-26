@@ -117,7 +117,7 @@ if  __name__ == "__main__":
              best_val_accuracy = avg_val_acc
              epoch_no = epoch
              
-             checkpoint_name_best = f"artifacts/best_model.pth"
+             checkpoint_name_best = f"artifact/best_model.pth"
              checkpoint_best = {
                 "epoch" : epoch, 
                 "model_state_dict": model.state_dict(),

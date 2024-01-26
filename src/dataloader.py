@@ -1,6 +1,6 @@
 from torch.utils.data import DataLoader
-from src.datasets import ODIRDataset
-from src.transforms import transforms
+from datasets import ODIRDataset
+from transforms import transforms
 
 
 

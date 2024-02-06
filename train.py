@@ -119,7 +119,7 @@ if  __name__ == "__main__":
              best_val_accuracy = avg_val_acc
              epoch_no = epoch
              
-             checkpoint_name_best = f"artifacts/best_model.pth"
+             checkpoint_name_best = f"artifact/best_model.pth"
              checkpoint_best = {
                 "epoch" : epoch, 
                 "model_state_dict": model.state_dict(),
@@ -154,7 +154,7 @@ if  __name__ == "__main__":
        
         print(f"epoch {epoch} train loss: {avg_train_loss:.3f} \t val loss : {avg_val_loss:.3f} \t train accuracy : {avg_train_acc:.3f} \t val accuracy : {avg_val_acc:.3f}")
 
-        checkpoint_name = f"artifacts/{folder_name}/ckpt-{model.__class__.__name__}-val={avg_val_acc:.3f}-epoch={epoch}"
+        checkpoint_name = f"artifact/{folder_name}/ckpt-{model.__class__.__name__}-val={avg_val_acc:.3f}-epoch={epoch}"
         checkpoint = {
             "epoch" : epoch, 
             "model_state_dict": model.state_dict(),
@@ -172,7 +172,7 @@ if  __name__ == "__main__":
                 
     #save the model
 
-    # torch.save(model, "artifacts/first_model.pth")
+    # torch.save(model, "artifact/first_model.pth")
 
     fig,(ax1, ax2) = plt.subplots(1, 2, figsize=(20, 10))
 

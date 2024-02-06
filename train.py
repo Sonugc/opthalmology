@@ -17,6 +17,7 @@ if  __name__ == "__main__":
     SEED = 42
     torch.manual_seed(SEED)
     
+    device = torch.device("cuda")
     dt= datetime.now()
     
     format_dt = dt.strftime("%Y-%m-%d-%H-%M-%S")
@@ -30,7 +31,7 @@ if  __name__ == "__main__":
     
     #load the model
     model= DenseNet201Model(num_labels=8) 
-    
+    model = model.to(device) 
 
     
     
@@ -59,6 +60,7 @@ if  __name__ == "__main__":
         
         model.train()   #change into training mode
         for images , labels in train_dataloader:
+            images = images.to(device)
             optimizer.zero_grad()
             model_out = model(images)
             model_out = F.log_softmax(model_out , dim =1)

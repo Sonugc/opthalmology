@@ -17,6 +17,7 @@ if  __name__ == "__main__":
     SEED = 42
     torch.manual_seed(SEED)
     
+
     device = torch.device("cuda")
     dt= datetime.now()
     
@@ -61,6 +62,7 @@ if  __name__ == "__main__":
         model.train()   #change into training mode
         for images , labels in train_dataloader:
             images = images.to(device)
+            labels= labels.to(device)
             optimizer.zero_grad()
             model_out = model(images)
             model_out = F.log_softmax(model_out , dim =1)
@@ -72,7 +74,8 @@ if  __name__ == "__main__":
             # values, indices = torch.max(model_out, dim =1)
         
         for images , labels in train_dataloader:
-            
+            images = images.to(device)
+            labels= labels.to(device)
             model_out = model(images)
             model_out = F.log_softmax(model_out , dim =1)
             loss = criterion(model_out, labels)
@@ -85,7 +88,8 @@ if  __name__ == "__main__":
               
         model.eval()  #change into validation mode
         for images , labels in val_dataloader:
-           
+            images = images.to(device)
+            labels= labels.to(device)
             model_out = model(images)
            
             model_out = F.log_softmax(model_out , dim =1)

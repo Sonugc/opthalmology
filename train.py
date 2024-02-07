@@ -40,7 +40,7 @@ if  __name__ == "__main__":
     #3. Train
     
     LR= 0.0001
-    EPOCHS = 20
+    EPOCHS = 2
     criterion = nn.NLLLoss()
     optimizer = torch.optim.Adam(model.parameters(), lr = LR)
     epochwise_train_losses = []
@@ -73,19 +73,25 @@ if  __name__ == "__main__":
             optimizer.step()
             # print("loss",loss)
             # values, indices = torch.max(model_out, dim =1)
-        
-        for images , labels in train_dataloader:
-            images = images.to(device)
-            labels= labels.to(device)
-            model_out = model(images)
-            model_out = F.log_softmax(model_out , dim =1)
-            loss = criterion(model_out, labels)
-            train_running_loss += loss.item()* images.size(0)
-           
-            #find acuracy           
+
+             #find acuracy           
             preds = torch.argmax(model_out, dim=1)
             acc = (preds== labels).float().mean()
             train_running_accuracy += acc.item() 
+              
+        
+        # for images , labels in train_dataloader:
+        #     images = images.to(device)
+        #     labels= labels.to(device)
+        #     model_out = model(images)
+        #     model_out = F.log_softmax(model_out , dim =1)
+        #     loss = criterion(model_out, labels)
+        #     train_running_loss += loss.item()* images.size(0)
+           
+        #     #find acuracy           
+        #     preds = torch.argmax(model_out, dim=1)
+        #     acc = (preds== labels).float().mean()
+        #     train_running_accuracy += acc.item() 
               
         model.eval()  #change into validation mode
         for images , labels in val_dataloader:

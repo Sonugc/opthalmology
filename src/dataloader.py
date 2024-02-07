@@ -12,9 +12,9 @@ train_dataset= ODIRDataset(csv_path=train_csv_path ,transforms=transforms,has_la
 val_dataset=ODIRDataset(csv_path=val_csv_path, transforms=transforms,has_labels=True)
 test_dataset=ODIRDataset(csv_path=test_csv_path, transforms=transforms,has_labels=False)
 
-train_dataloader=  DataLoader(train_dataset, batch_size=10, shuffle=True)
-val_dataloader = DataLoader(val_dataset, batch_size=10)
-test_dataloader = DataLoader(test_dataset, batch_size=10)
+train_dataloader=  DataLoader(train_dataset, batch_size=20, shuffle=True)
+val_dataloader = DataLoader(val_dataset, batch_size=20)
+test_dataloader = DataLoader(test_dataset, batch_size=20)
 
 if __name__ == "__main__":
     images, labels = next(iter(train_dataloader))

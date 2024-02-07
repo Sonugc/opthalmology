@@ -1,5 +1,6 @@
 from torch.utils.data import Dataset
 import torch.nn as nn 
+from tqdm import tqdm
 import torch
 import numpy as np
 import torch.nn.functional as F
@@ -39,7 +40,7 @@ if  __name__ == "__main__":
     #3. Train
     
     LR= 0.0001
-    EPOCHS = 10
+    EPOCHS = 20
     criterion = nn.NLLLoss()
     optimizer = torch.optim.Adam(model.parameters(), lr = LR)
     epochwise_train_losses = []
@@ -52,7 +53,7 @@ if  __name__ == "__main__":
     avg_acc = 0
     avg_acc_next= 0
     MIN_EPOCHS = 6
-    for epoch in range(EPOCHS):
+    for epoch in tqdm(range(EPOCHS)):
         train_running_loss  = 0
         val_running_loss = 0
         train_running_accuracy = 0
@@ -143,16 +144,16 @@ if  __name__ == "__main__":
         epochwise_val_acc.append(avg_val_acc)
         epochwise_train_acc.append(avg_train_acc)
         
-        if epoch >= MIN_EPOCHS:
-            avg_acc = np.mean(epochwise_val_acc[-5:])
-            avg_acc_next = np.mean(epochwise_val_acc[-6:-1])
+        # if epoch >= MIN_EPOCHS:
+        #     avg_acc = np.mean(epochwise_val_acc[-5:])
+        #     avg_acc_next = np.mean(epochwise_val_acc[-6:-1])
 
-            difference = avg_acc - avg_acc_next
-            print(f"Difference: {difference:.3f}")
+        #     difference = avg_acc - avg_acc_next
+        #     print(f"Difference: {difference:.3f}")
             
-            if( difference <= limit):
-                print("the last epoch was", epoch)
-                break
+        #     if( difference <= limit):
+        #         print("the last epoch was", epoch)
+        #         break
         
         
        

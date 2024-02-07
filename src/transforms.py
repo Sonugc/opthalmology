@@ -13,7 +13,7 @@ class CropNonzero(object):
 # Define transformations
 transforms = v2transforms.Compose([
     CropNonzero(),
-    v2transforms.Resize(size=(256,256)),
+    v2transforms.Resize(size=(128,128)),
     v2transforms.ToTensor(),
     v2transforms.Normalize(mean=[0.0177, 0.0195, 0.0210], std=[0.2271,0.2271, 0.2271]),
 ])

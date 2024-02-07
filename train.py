@@ -39,8 +39,8 @@ if  __name__ == "__main__":
     
     #3. Train
     
-    LR= 0.0001
-    EPOCHS = 2
+    LR= 0.01
+    EPOCHS = 10
     criterion = nn.NLLLoss()
     optimizer = torch.optim.Adam(model.parameters(), lr = LR)
     epochwise_train_losses = []
